@@ -1,4 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'my-list',
@@ -7,18 +8,23 @@ import { Component, Input, OnInit} from '@angular/core';
 })
 export class MyListComponent implements OnInit {
     @Input() list: Array<any>;
-    constructor () {
-        this.listt = [
-            {
-                name: '123'
-            },
-            {
-                name: '345'
-            }
-        ];
+    @Input() strList: Array<string>;
+
+    constructor(private router: Router, private route: ActivatedRoute) {
+        console.log(router.routerState);
+        console.log(route.data);
     }
 
     ngOnInit() {
+        if (this.router.routerState.snapshot.url !== '') {
+            this.route.data.subscribe((data) => {
+                this.list = data.list;
+                this.strList = data.strList;
+            });
+        }
+        console.log('-------- NGONINIT LOGS: ----------');
         console.log(this.list);
+        console.log(this.strList);
     }
+
 }

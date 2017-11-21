@@ -1,5 +1,12 @@
-<ul>
-    <li *ngFor="let elem of listt">
-        {{elem.name}}
-    </li>
-</ul>
+<div class="content-wrapper">
+    <ul>
+        <li *ngFor="let elem of list">
+            <a routerLink='/list1'>{{elem.name}}</a>
+        </li>
+    </ul>
+    <ul>
+        <li *ngFor="let str of strList">
+            <a routerLink='/list2'>{{str}}</a>
+        </li>
+    </ul>
+</div>

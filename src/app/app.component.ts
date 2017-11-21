@@ -18,4 +18,5 @@ export class AppComponent {
             name: '345'
         }
     ];
+    strList = ['abc', 'def', 'ghi'];
 }
